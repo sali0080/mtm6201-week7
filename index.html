@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 - SVG</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div>
+        <h1>SVG - Scalable Vector Graphics</h1>
+
+<!-- DIFFERENT WAYS TO ADD SVG -->
+        <!-- SVG file - SVG graphic code here through images, done on seperate file ** Adding graphic codes through seperate file will target eveything in the SVG code ** -->
+        <img src="images/myfirst.svg" alt="graphic of a square with circle">
+
+        <!-- HTML - SVG graphic code here (remove version and xmlns codes) ** Adding through HTML will allow you to target specific spots **-->
+        <svg class="dice" width="200" height="200" viewbox="0 0 200 200">
+          
+            <rect x="0" y="0" width="200" height="200" rx="8" ry="4" fill="#4dd0e1"/>
+          
+            <circle cx="50" cy="50" r="25" fill="#d50090" />
+          </svg>
+
+        <!-- reusing graphics code while adding multiple dots without needing to add whole code -->
+        <svg class="dice" width="200" height="200" viewbox="0 0 200 200">
+          
+            <rect x="0" y="0" width="200" height="200" rx="8" ry="4" fill="#4dd0e1"/>
+          
+            <circle id="dot" cx="50" cy="50" r="25" fill="#d50090" />
+
+            <use xlink:href="#dot" x="100"></use>
+            <use xlink:href="#dot" y="100"></use>
+            <use xlink:href="#dot" y="100" x="100"></use>
+
+          </svg>
+
+        <!-- defs us and group <g> -->
+        <svg class="dice5" width="200" height="200" viewbox="0 0 200 200">
+            <defs> 
+                <rect id="box" x="0" y="0" width="200" height="200" rx="10" ry="14" fill="#f50000"/>
+                <circle id="point" cx="50" cy="50" r="25" fill="#d50000"/>
+            </defs>
+                <use xlink:href="#box" x="0" y="0"></use>
+            <g>
+                <use xlink:href="#point" x="0" y="0"></use>
+                <use xlink:href="#point" x="100" y="0"></use>
+                <use xlink:href="#point" x="50" y="50"></use>
+                <use xlink:href="#point" x="0" y="100"></use>
+                <use xlink:href="#point" x="100" y="100"></use>
+            </g>
+        </svg>
+
+        <!-- creating gradient and adding it on text -->
+            <svg width="250" height="50" viewbox="0 0 250 50">
+                <defs>
+                    <linearGradient id="mygradient">
+                        <stop offset="0%" stop-color="red"/>
+                        <stop offset="50%" stop-color="black"/>
+                        <stop offset="100%" stop-color="gold"/>
+                    </linearGradient>
+                </defs>
+
+                <text x="0" y="50" fill="url(#mygradient)" font-size="2rem">Colorful</text>
+            </svg>
+        
+    <!-- Adding smiley face with svg code -->
+
+    <svg id="smily" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487 484" width="487" height="484">
+        <defs>
+          
+        </defs>
+        <g id="face">
+          <circle class="cls-1" cx="241" cy="243" r="234" />
+        </g>
+        <path id="mouth" class="cls-2" d="M100,292H381.79s-18,78-140.9,78S100,292,100,292Z" />
+        <ellipse id="eye-l" class="cls-2" cx="141.5" cy="154" rx="37.5" ry="65" />
+        <ellipse id="eye-r" class="cls-2" cx="342.5" cy="154" rx="37.5" ry="65" />
+        <circle id="pupil-l" cx="137.5" cy="182.5" r="24.5" />
+        <circle id="pupil-r" cx="337.5" cy="182.5" r="24.5" />
+        <path id="eyelash-l" class="cls-3" d="M179,154c-37,2-37,0-75,0,0-35.9,16.79-65,37.5-65S179,118.1,179,154Z" />
+        <path id="eyelash-r" class="cls-3" d="M380,154c-37,2-37,0-75,0,0-35.9,16.79-65,37.5-65S380,118.1,380,154Z" />
+      </svg>
+
+    </div>
+
+</body>
+</html>
